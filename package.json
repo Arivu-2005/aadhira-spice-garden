@@ -1,0 +1,21 @@
+{
+  "name": "aadhira-spice-garden",
+  "version": "1.0.0",
+  "description": "Authentic South Indian & Chettinad Dining website and operations management system",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "init-db": "node server/db.js",
+    "test": "node test/api.test.js"
+  },
+  "keywords": [
+    "restaurant",
+    "south-indian",
+    "chettinad",
+    "dindigul",
+    "booking",
+    "menu-management"
+  ],
+  "author": "Aadhira Spice Garden Culinary Engineering",
+  "license": "ISC"
+}

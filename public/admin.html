@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff & Operations Portal | Aadhira Spice Garden</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+  <!-- LOGIN VIEW -->
+  <div class="auth-wrapper" id="loginView">
+    <div class="auth-card">
+      <div class="auth-header">
+        <i class="fa-solid fa-leaf" style="font-size: 2rem; color: var(--admin-accent); margin-bottom: 12px;"></i>
+        <h2>Aadhira Spice Garden</h2>
+        <p>Operations & Management Administration</p>
+      </div>
+      <div class="auth-body">
+        <div class="demo-credentials-note">
+          <i class="fa-solid fa-key"></i> <strong>Demo Credentials:</strong><br>
+          Username: <code>admin</code> &bull; Password: <code>admin123</code>
+        </div>
+
+        <form id="adminLoginForm">
+          <div class="form-group">
+            <label for="adminUsername">Username</label>
+            <input type="text" id="adminUsername" class="form-control" value="admin" required autocomplete="username">
+          </div>
+          <div class="form-group">
+            <label for="adminPassword">Password</label>
+            <input type="password" id="adminPassword" class="form-control" value="admin123" required autocomplete="current-password">
+          </div>
+          <button type="submit" class="btn-sm btn-sm-primary" id="loginSubmitBtn" style="width: 100%; padding: 12px; font-size: 0.95rem; justify-content: center;">
+            <i class="fa-solid fa-right-to-bracket"></i> Sign In to Dashboard
+          </button>
+        </form>
+
+        <div id="loginErrorMsg" style="display: none; margin-top: 16px; padding: 12px; background: #fee2e2; color: #b91c1c; border-radius: 6px; font-size: 0.85rem;"></div>
+
+        <div style="margin-top: 24px; text-align: center;">
+          <a href="/" style="font-size: 0.85rem; color: var(--admin-muted); text-decoration: none;">
+            &larr; Back to Customer Website
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD VIEW -->
+  <div class="admin-layout" id="dashboardView" style="display: none;">
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-icon">
+          <i class="fa-solid fa-mortar-pestle"></i>
+        </div>
+        <div>
+          <h3>Aadhira Garden</h3>
+          <span>Admin Portal</span>
+        </div>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li>
+          <a href="#overview" class="nav-item active" data-tab="tab-overview">
+            <i class="fa-solid fa-chart-pie"></i> Dashboard Overview
+          </a>
+        </li>
+        <li>
+          <a href="#reservations" class="nav-item" data-tab="tab-reservations">
+            <i class="fa-regular fa-calendar-check"></i> Reservations
+          </a>
+        </li>
+        <li>
+          <a href="#orders" class="nav-item" data-tab="tab-orders">
+            <i class="fa-solid fa-bag-shopping"></i> Online Orders
+          </a>
+        </li>
+        <li>
+          <a href="#menu" class="nav-item" data-tab="tab-menu">
+            <i class="fa-solid fa-utensils"></i> Menu Catalog
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <div class="admin-user-pill">
+          <div class="admin-avatar" id="adminAvatarInitial">A</div>
+          <div class="admin-user-info">
+            <h4 id="adminUserDisplayName">General Manager</h4>
+            <span>Administrator</span>
+          </div>
+        </div>
+        <button class="btn-logout" id="logoutBtn" title="Sign Out">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN PANEL -->
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div class="topbar-title">
+          <h2 id="currentTabTitle">Dashboard Overview</h2>
+        </div>
+        <div class="topbar-actions">
+          <a href="/" target="_blank" class="topbar-link">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> View Public Website
+          </a>
+        </div>
+      </header>
+
+      <div class="admin-content">
+        <!-- TAB 1: OVERVIEW -->
+        <section class="admin-tab-pane active" id="tab-overview">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-info">
+                <p>Total Revenue</p>
+                <h3 id="statRevenue">&#8377;0</h3>
+              </div>
+              <div class="stat-icon gold">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-info">
+                <p>Reservations</p>
+                <h3 id="statReservations">0</h3>
+              </div>
+              <div class="stat-icon green">
+                <i class="fa-solid fa-calendar-check"></i>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-info">
+                <p>Online Orders</p>
+                <h3 id="statOrders">0</h3>
+              </div>
+              <div class="stat-icon blue">
+                <i class="fa-solid fa-utensils"></i>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-info">
+                <p>Active Menu Dishes</p>
+                <h3 id="statMenuCount">0</h3>
+              </div>
+              <div class="stat-icon purple">
+                <i class="fa-solid fa-bowl-food"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Recent Reservations & Orders Overview -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+            <div class="content-card">
+              <div class="content-card-header">
+                <h3>Recent Table Bookings</h3>
+                <button class="btn-sm btn-sm-primary" onclick="switchTab('tab-reservations')">View All</button>
+              </div>
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Ref Code</th>
+                      <th>Guest</th>
+                      <th>Date / Time</th>
+                      <th>Party</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="overviewRecentReservationsBody">
+                    <tr><td colspan="5" style="text-align: center;">Loading...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="content-card">
+              <div class="content-card-header">
+                <h3>Recent Customer Orders</h3>
+                <button class="btn-sm btn-sm-primary" onclick="switchTab('tab-orders')">View All</button>
+              </div>
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Order #</th>
+                      <th>Customer</th>
+                      <th>Total</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="overviewRecentOrdersBody">
+                    <tr><td colspan="4" style="text-align: center;">Loading...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 2: RESERVATIONS -->
+        <section class="admin-tab-pane" id="tab-reservations">
+          <div class="content-card">
+            <div class="content-card-header">
+              <h3>Table Reservations Management</h3>
+              <button class="btn-sm btn-sm-primary" onclick="fetchReservations()">
+                <i class="fa-solid fa-rotate-right"></i> Refresh
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Ref #</th>
+                    <th>Customer Name</th>
+                    <th>Phone</th>
+                    <th>Date & Time</th>
+                    <th>Guests</th>
+                    <th>Session</th>
+                    <th>Special Requests</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="reservationsTableBody">
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 3: ORDERS -->
+        <section class="admin-tab-pane" id="tab-orders">
+          <div class="content-card">
+            <div class="content-card-header">
+              <h3>Live Customer Orders</h3>
+              <button class="btn-sm btn-sm-primary" onclick="fetchOrders()">
+                <i class="fa-solid fa-rotate-right"></i> Refresh
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Contact</th>
+                    <th>Items & Quantities</th>
+                    <th>Type & Address</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="ordersTableBody">
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 4: MENU MANAGEMENT -->
+        <section class="admin-tab-pane" id="tab-menu">
+          <div class="content-card">
+            <div class="content-card-header">
+              <h3>Menu Dishes Catalog</h3>
+              <button class="btn-sm btn-sm-primary" onclick="openAddMenuModal()">
+                <i class="fa-solid fa-plus"></i> Add New Dish
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Dish Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Type</th>
+                    <th>Badge</th>
+                    <th>Availability</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="menuTableBody">
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- ADD / EDIT MENU MODAL -->
+  <div class="admin-modal-overlay" id="menuModalOverlay">
+    <div class="admin-modal">
+      <div class="admin-modal-header">
+        <h3 id="menuModalTitle">Add New Dish</h3>
+        <button onclick="closeMenuModal()" style="background: none; border: none; color: #fff; font-size: 1.3rem; cursor: pointer;">&times;</button>
+      </div>
+      <form id="menuItemForm">
+        <input type="hidden" id="editMenuId" value="">
+        <div class="admin-modal-body">
+          <div class="form-row">
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+              <label for="dishName" style="font-weight: 600; font-size: 0.85rem;">Dish Name *</label>
+              <input type="text" id="dishName" class="form-control" style="padding: 10px; border: 1px solid var(--admin-border); border-radius: 6px;" required>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+              <label for="dishCategory" style="font-weight: 600; font-size: 0.85rem;">Category *</label>
+              <select id="dishCategory" class="form-control" style="padding: 10px; border: 1px solid var(--admin-border); border-radius: 6px;" required>
+                <!-- Populated via JS -->
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+              <label for="dishPrice" style="font-weight: 600; font-size: 0.85rem;">Price (&#8377;) *</label>
+              <input type="number" id="dishPrice" class="form-control" style="padding: 10px; border: 1px solid var(--admin-border); border-radius: 6px;" required min="1">
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+              <label for="dishDiet" style="font-weight: 600; font-size: 0.85rem;">Diet Type</label>
+              <select id="dishDiet" class="form-control" style="padding: 10px; border: 1px solid var(--admin-border); border-radius: 6px;">
+                <option value="1">Pure Vegetarian (Green Dot)</option>
+                <option value="0">Non-Vegetarian (Red Dot)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+              <label for="dishSpice" style="font-weight: 600; font-size: 0.85rem;">Spice Level (0-3)</label>
+              <select id="dishSpice" class="form-control" style="padding: 10px; border: 1px solid var(--admin-border); border-radius: 6px;">
+                <option value="0">Mild / None</option>
+                <option value="1" selected>Medium</option>
+                <option value="2">Spicy</option>
+                <option value="3">Very Spicy (Chettinad style)</option>
+              </select>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+              <label for="dishBadge" style="font-weight: 600; font-size: 0.85rem;">Highlight Badge (Optional)</label>
+              <input type="text" id="dishBadge" class="form-control" style="padding: 10px; border: 1px solid var(--admin-border); border-radius: 6px;" placeholder="e.g. Chef Special, Most Loved">
+            </div>
+          </div>
+
+          <div class="form-group" style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;">
+            <label for="dishImage" style="font-weight: 600; font-size: 0.85rem;">Image URL</label>
+            <input type="url" id="dishImage" class="form-control" style="padding: 10px; border: 1px solid var(--admin-border); border-radius: 6px;" placeholder="https://images.unsplash.com/...">
+          </div>
+
+          <div class="form-group" style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;">
+            <label for="dishDesc" style="font-weight: 600; font-size: 0.85rem;">Description</label>
+            <textarea id="dishDesc" class="form-control" style="padding: 10px; border: 1px solid var(--admin-border); border-radius: 6px; min-height: 70px;"></textarea>
+          </div>
+
+          <div class="form-group" style="display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" id="dishAvailable" checked style="width: 18px; height: 18px; accent-color: var(--admin-primary);">
+            <label for="dishAvailable" style="font-weight: 600; font-size: 0.9rem; cursor: pointer;">Available for Ordering</label>
+          </div>
+        </div>
+
+        <div class="admin-modal-footer">
+          <button type="button" class="btn-sm" onclick="closeMenuModal()" style="background: #e2e8f0; color: #475569;">Cancel</button>
+          <button type="submit" class="btn-sm btn-sm-primary" id="saveMenuBtn">Save Dish</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>

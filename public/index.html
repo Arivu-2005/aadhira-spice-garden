@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aadhira Spice Garden | Authentic South Indian & Chettinad Dining</title>
+  <meta name="description" content="Authentic South Indian Food with a Modern Dining Experience in Dindigul. Savor authentic Dosas, Idlis, traditional meals, and rich Chettinad heritage cuisine.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Demonstration Notice Header -->
+  <aside class="demo-banner" aria-label="Demo notice">
+    <span><i class="fa-solid fa-circle-info"></i> Demonstration Restaurant Platform &bull; Phone +91 98765 43210 is a demo contact &bull; <a href="/admin.html">Access Staff / Admin Panel &rarr;</a></span>
+  </aside>
+
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="#home" class="brand" aria-label="Aadhira Spice Garden Home">
+        <div class="brand-symbol">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+        <div class="brand-text">
+          <h1>Aadhira Spice Garden</h1>
+          <span>Authentic South Indian &bull; Chettinad</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#booking">Table Booking</a></li>
+          <li><a href="#location">Find Us</a></li>
+          <li><a href="/admin.html" style="color: var(--gold-hover);"><i class="fa-solid fa-lock"></i> Admin</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="cart-btn-trigger" id="openCartBtn" aria-label="Open Order Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <a href="#booking" class="btn btn-gold" style="padding: 10px 20px; font-size: 0.88rem;">
+          <i class="fa-regular fa-calendar-check"></i> Book Table
+        </a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fa-solid fa-crown"></i> Heritage Flavors of Tamil Nadu
+          </div>
+          <h2 class="hero-title">
+            Authentic South Indian Food with a <span>Modern Dining</span> Experience.
+          </h2>
+          <p class="hero-tagline">
+            Immerse yourself in aromatic stone-ground Chettinad spices, crisp golden ghee dosas, and slow-cooked banana-leaf feasts.
+          </p>
+          <p class="hero-desc">
+            Nestled in the heart of Dindigul, Aadhira Spice Garden celebrates centuries-old culinary secrets paired with contemporary ambiance and heartfelt hospitality.
+          </p>
+          <div class="hero-actions">
+            <a href="#booking" class="btn btn-gold">
+              <i class="fa-solid fa-utensils"></i> Reserve a Table
+            </a>
+            <a href="#menu" class="btn btn-outline-gold">
+              <i class="fa-solid fa-book-open"></i> Explore Menu
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <h3>100%</h3>
+              <p>Pure Cow Ghee & Stone-ground Spices</p>
+            </div>
+            <div class="hero-stat">
+              <h3>7:00 AM</h3>
+              <p>Fresh Tiffin & Degree Coffee</p>
+            </div>
+            <div class="hero-stat">
+              <h3>Chettinad</h3>
+              <p>Signature Heritage Recipes</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=1000&auto=format&fit=crop&q=80" 
+               alt="Aromatic South Indian Ghee Roast Dosa with Chutneys and Sambar" 
+               class="hero-image-main">
+          <div class="hero-floating-card">
+            <div class="icon-box">
+              <i class="fa-solid fa-mug-hot" style="color: var(--primary);"></i>
+            </div>
+            <div>
+              <h4>Fresh Degree Filter Coffee</h4>
+              <p>Brewed every 15 minutes with pure milk</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY HIGHLIGHTS BAR -->
+    <div class="highlights-bar">
+      <div class="container highlights-grid">
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fa-solid fa-mortar-pestle"></i></div>
+          <div>
+            <h4>Stone-Ground Masalas</h4>
+            <p>Made fresh every morning in-house</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fa-solid fa-leaf"></i></div>
+          <div>
+            <h4>Pure Ghee & Cold Pressed Oils</h4>
+            <p>No palm oil, no artificial essences</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+          <div>
+            <h4>Family & Corporate Dining</h4>
+            <p>Private dining suites & AC halls</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fa-solid fa-bell-concierge"></i></div>
+          <div>
+            <h4>Instant Table Reservation</h4>
+            <p>Guaranteed seating with zero wait-time</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MENU SECTION -->
+    <section class="section" id="menu">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="section-tag"><i class="fa-solid fa-utensils"></i> Handcrafted Culinary Collection</span>
+          <h2 class="section-title">Our Authentic Specialties</h2>
+          <p class="section-subtitle">
+            From steaming morning tiffins to royal Chettinad banquets, each recipe reflects genuine generational mastery and natural ingredients.
+          </p>
+        </div>
+
+        <!-- Search & Dietary Filters -->
+        <div class="menu-controls">
+          <div class="menu-search-bar">
+            <div class="search-input-wrapper">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" id="menuSearchInput" placeholder="Search dish name (e.g. Dosa, Kari, Biryani, Coffee)..." aria-label="Search menu items">
+            </div>
+            <label class="veg-toggle-label" title="Toggle Pure Vegetarian Dishes">
+              <input type="checkbox" id="vegFilterCheckbox" style="accent-color: var(--veg-green);">
+              <span class="veg-symbol"><span class="veg-dot"></span></span>
+              <span>Veg Only</span>
+            </label>
+          </div>
+
+          <!-- Dynamic Category Tabs -->
+          <div class="category-tabs" id="categoryTabsContainer">
+            <button class="cat-tab active" data-category="all">All Dishes</button>
+            <!-- Loaded dynamically from API -->
+          </div>
+        </div>
+
+        <!-- Dishes Grid -->
+        <div class="menu-grid" id="menuItemsGrid">
+          <!-- Populated by JavaScript -->
+          <div style="grid-column: 1 / -1; text-align: center; padding: 48px;">
+            <i class="fa-solid fa-circle-notch fa-spin fa-2x" style="color: var(--primary);"></i>
+            <p style="margin-top: 12px;">Loading delicious menu items...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section about-section" id="about">
+      <div class="container about-grid">
+        <div class="about-images">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop&q=80" 
+               alt="Aadhira Spice Garden Dining Table Ambiance" 
+               class="about-img-1">
+          <img src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?w=800&auto=format&fit=crop&q=80" 
+               alt="Traditional Banana Leaf Saiva Sapadu Feast" 
+               class="about-img-2">
+          <div class="about-experience-card">
+            <h3>25+</h3>
+            <p>Years of Culinary Heritage</p>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <span class="section-tag"><i class="fa-solid fa-seedling"></i> Our Story & Philosophy</span>
+          <h2>A Tribute to Grandmothers' Kitchens & Chettinad Mansions</h2>
+          <p class="about-p">
+            At <strong>Aadhira Spice Garden</strong>, food is more than sustenance—it is a sacred expression of Tamil culture. Originating in Dindigul, renowned globally for its distinct culinary heritage and fragrant spices, our kitchen unites age-old secrets from Karaikudi, Madurai, and Thanjavur.
+          </p>
+          <p class="about-p">
+            We source our red chillies from Ramanathapuram, black pepper from the hills of Kolli, and pure cow ghee from native breeds. Every single batter is naturally fermented over stone grinders to achieve that signature golden crunch on our dosas and cloud-like tenderness in our idlis.
+          </p>
+
+          <div class="about-features">
+            <div class="about-feature-box">
+              <h4><i class="fa-solid fa-pepper-hot" style="color: var(--gold-hover);"></i> Chettinad Spice Roots</h4>
+              <p>Kalpasi (stone flower), marathi moggu, and Tellicherry pepper blended to perfection.</p>
+            </div>
+            <div class="about-feature-box">
+              <h4><i class="fa-solid fa-leaf" style="color: var(--veg-green);"></i> Pure Vegetarian Kitchen Wing</h4>
+              <p>Segregated preparation stations guaranteeing complete dietary purity and respect.</p>
+            </div>
+            <div class="about-feature-box">
+              <h4><i class="fa-solid fa-award" style="color: var(--gold-hover);"></i> Uncompromised Quality</h4>
+              <p>No MSG, artificial colors, or re-used oils—wholesome for the entire family.</p>
+            </div>
+            <div class="about-feature-box">
+              <h4><i class="fa-solid fa-users" style="color: var(--primary);"></i> Warm Southern Hospitality</h4>
+              <p>Traditional banana-leaf service with unlimited refills for our grand meal patrons.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS / TESTIMONIALS SECTION -->
+    <section class="section" id="reviews">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="fictional-notice"><i class="fa-solid fa-flask"></i> Fictional Sample Reviews for Demonstration</span>
+          <br>
+          <span class="section-tag"><i class="fa-solid fa-heart"></i> Patron Reflections</span>
+          <h2 class="section-title">Words from Our Valued Guests</h2>
+          <p class="section-subtitle">
+            Read what visitors cherish about the warm ambiance, traditional flavors, and hospitality at Aadhira Spice Garden.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "The Kari Dosa and Ennai Kathirikai Kuzhambu reminded me of authentic weddings in Chettinad. The ghee aroma stays with you, and their Kumbakonam degree filter coffee in the brass tumbler is unmatched!"
+            </p>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">S</div>
+              <div class="reviewer-info">
+                <h4>Dr. Sivasankaran R.</h4>
+                <p>Frequent Family Diner &bull; Madurai</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "We reserved a large table for 12 guests during our Dindigul trip. The reservation system was seamless, the staff greeted us with thamboolam and smiles, and the full banana-leaf meal was perfection."
+            </p>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">P</div>
+              <div class="reviewer-info">
+                <h4>Priya Anand</h4>
+                <p>Culinary Enthusiast &bull; Chennai</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">
+              "Crispy Medu Vadas that aren't oily at all, paired with thick coconut chutney and shallot sambar at 7:30 AM! Truly a modern dining temple preserving genuine South Indian culinary ethics."
+            </p>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">V</div>
+              <div class="reviewer-info">
+                <h4>Vijay Raghavan</h4>
+                <p>Business Traveler &bull; Coimbatore</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING & RESERVATION SECTION -->
+    <section class="section booking-section" id="booking">
+      <div class="container">
+        <div class="booking-wrapper">
+          <div class="booking-side-info">
+            <div>
+              <span class="section-tag" style="background: rgba(255,255,255,0.15); color: #fff;">
+                <i class="fa-regular fa-clock"></i> Guaranteed Seating
+              </span>
+              <h3>Table Reservations</h3>
+              <p>
+                Experience gracious dining without waiting. Reserve your table in advance for intimate dinners, family gatherings, or celebratory feasts.
+              </p>
+
+              <ul class="booking-hours-list">
+                <li>
+                  <span>Breakfast Service:</span>
+                  <strong>7:00 AM – 11:00 AM</strong>
+                </li>
+                <li>
+                  <span>Lunch Feast:</span>
+                  <strong>12:00 PM – 3:30 PM</strong>
+                </li>
+                <li>
+                  <span>Dinner Service:</span>
+                  <strong>6:30 PM – 10:30 PM</strong>
+                </li>
+                <li>
+                  <span>Operating Days:</span>
+                  <strong>Monday – Sunday</strong>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="direct-booking-url">
+                <p><i class="fa-solid fa-link"></i> Direct Booking Reference URL:</p>
+                <a href="https://example.com/booking" target="_blank" rel="noopener">https://example.com/booking</a>
+              </div>
+              <p style="margin-top: 14px; font-size: 0.8rem; color: #a0c2ad;">
+                <i class="fa-solid fa-phone"></i> Need immediate assistance? Dial: <strong>+91 98765 43210</strong> (Demo)
+              </p>
+            </div>
+          </div>
+
+          <div class="booking-form-container">
+            <div class="booking-form-header">
+              <h3>Book Your Table</h3>
+              <p>Fill out the details below. Our reservation engine instantly confirms availability.</p>
+            </div>
+
+            <form id="reservationForm" novalidate>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="resName">Full Name *</label>
+                  <input type="text" id="resName" name="customer_name" class="form-control" placeholder="e.g. Sundaramurthy" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="resPhone">Mobile Phone *</label>
+                  <input type="tel" id="resPhone" name="phone" class="form-control" placeholder="10-digit mobile number" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="resEmail">Email Address (Optional)</label>
+                  <input type="email" id="resEmail" name="email" class="form-control" placeholder="name@example.com">
+                </div>
+
+                <div class="form-group">
+                  <label for="resPartySize">Number of Guests *</label>
+                  <select id="resPartySize" name="party_size" class="form-control" required>
+                    <option value="1">1 Person (Solo Dining)</option>
+                    <option value="2" selected>2 Persons (Duo / Couple)</option>
+                    <option value="3">3 Persons</option>
+                    <option value="4">4 Persons (Family Table)</option>
+                    <option value="5">5 Persons</option>
+                    <option value="6">6 Persons</option>
+                    <option value="8">8 Persons (Large Group)</option>
+                    <option value="10">10+ Persons (Feast Suite)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="resDate">Reservation Date *</label>
+                  <input type="date" id="resDate" name="reservation_date" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="resTime">Preferred Time *</label>
+                  <select id="resTime" name="reservation_time" class="form-control" required>
+                    <!-- Breakfast -->
+                    <optgroup label="Breakfast (7:00 AM - 11:00 AM)">
+                      <option value="07:30">7:30 AM</option>
+                      <option value="08:30">8:30 AM</option>
+                      <option value="09:30">9:30 AM</option>
+                      <option value="10:15">10:15 AM</option>
+                    </optgroup>
+                    <!-- Lunch -->
+                    <optgroup label="Lunch (12:00 PM - 3:30 PM)">
+                      <option value="12:30">12:30 PM</option>
+                      <option value="13:15" selected>1:15 PM</option>
+                      <option value="14:00">2:00 PM</option>
+                      <option value="14:45">2:45 PM</option>
+                    </optgroup>
+                    <!-- Dinner -->
+                    <optgroup label="Dinner (6:30 PM - 10:30 PM)">
+                      <option value="19:00">7:00 PM</option>
+                      <option value="19:45">7:45 PM</option>
+                      <option value="20:30">8:30 PM</option>
+                      <option value="21:15">9:15 PM</option>
+                    </optgroup>
+                  </select>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="resRequests">Special Requests / Seating Preference</label>
+                  <textarea id="resRequests" name="special_requests" class="form-control" placeholder="E.g. High chair needed, anniversary table, pure veg preference, etc."></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                  <button type="submit" class="btn btn-primary" id="submitBookingBtn" style="width: 100%; padding: 14px;">
+                    <i class="fa-solid fa-circle-check"></i> Confirm Table Reservation
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <div id="bookingStatusBox" class="booking-status-box" role="alert"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION & CONTACT SECTION -->
+    <section class="section" id="location">
+      <div class="container">
+        <div class="location-grid">
+          <div class="location-details">
+            <span class="section-tag"><i class="fa-solid fa-map-pin"></i> Prime Location</span>
+            <h2 style="font-size: 2.2rem; margin-bottom: 14px;">Visit Our Restaurant</h2>
+            <p>
+              Conveniently situated right near the central transportation hub in Dindigul, offering ample dedicated valet parking and serene air-conditioned dining halls.
+            </p>
+
+            <div class="info-cards-list">
+              <div class="info-item">
+                <div class="info-item-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="info-item-body">
+                  <h4>Address</h4>
+                  <p>25 Main Road, Near Bus Stand, Dindigul, Tamil Nadu – 624001</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-item-icon">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="info-item-body">
+                  <h4>Customer Inquiries & Takeaway</h4>
+                  <p><a href="tel:+919876543210">+91 98765 43210</a> (Demonstration number)</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-item-icon">
+                  <i class="fa-solid fa-clock"></i>
+                </div>
+                <div class="info-item-body">
+                  <h4>Operating Hours</h4>
+                  <p>Monday – Sunday: 7:00 AM – 10:30 PM (All 7 Days)</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-item-icon">
+                  <i class="fa-solid fa-globe"></i>
+                </div>
+                <div class="info-item-body">
+                  <h4>Official Website</h4>
+                  <p><a href="https://example.com" target="_blank" rel="noopener">https://example.com</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-card">
+            <div class="map-overlay-badge">
+              <i class="fa-solid fa-location-crosshairs" style="color: var(--primary);"></i> Dindigul Central Main Road
+            </div>
+            <!-- Interactive OpenStreetMap Embed -->
+            <iframe 
+              title="Map location of Aadhira Spice Garden Dindigul" 
+              src="https://www.openstreetmap.org/export/embed.html?bbox=77.9620%2C10.3550%2C77.9880%2C10.3750&amp;layer=mapnik&amp;marker=10.3673%2C77.9740" 
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CART SLIDE-OUT DRAWER (FOR ONLINE ORDERING) -->
+  <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart">
+    <div class="cart-header">
+      <h3><i class="fa-solid fa-bag-shopping"></i> Your Order Cart</h3>
+      <button class="close-cart-btn" id="closeCartBtn" aria-label="Close cart">&times;</button>
+    </div>
+
+    <div class="cart-items-body" id="cartItemsContainer">
+      <!-- Populated by JS -->
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-summary-row">
+        <span>Subtotal:</span>
+        <strong id="cartSubtotal">&#8377;0.00</strong>
+      </div>
+      <div class="cart-summary-row">
+        <span>GST (5%):</span>
+        <span id="cartTax">&#8377;0.00</span>
+      </div>
+      <div class="cart-summary-row cart-summary-total">
+        <span>Total Payable:</span>
+        <span id="cartGrandTotal">&#8377;0.00</span>
+      </div>
+      <button class="btn btn-primary" id="checkoutBtn" style="width: 100%;" disabled>
+        Proceed to Checkout (Demo)
+      </button>
+    </div>
+  </aside>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-truck-fast"></i> Complete Online Order (Demo)</h3>
+        <button class="modal-close-btn" id="closeCheckoutBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+          This is a functional demonstration ordering workflow connected to the restaurant database.
+        </p>
+
+        <form id="orderForm">
+          <div class="form-group" style="margin-bottom: 16px;">
+            <label for="orderCustomerName">Your Name *</label>
+            <input type="text" id="orderCustomerName" class="form-control" placeholder="e.g. Ramesh Krishnan" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 16px;">
+            <label for="orderPhone">Mobile Number *</label>
+            <input type="tel" id="orderPhone" class="form-control" placeholder="10-digit number" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 16px;">
+            <label for="orderType">Order Service Type</label>
+            <select id="orderType" class="form-control">
+              <option value="delivery">Home Delivery (Local Dindigul)</option>
+              <option value="takeaway">Quick Counter Takeaway</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 16px;">
+            <label for="orderAddress">Delivery / Pickup Address *</label>
+            <textarea id="orderAddress" class="form-control" placeholder="Street name, landmark, flat number" required></textarea>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="orderNotes">Cooking Instructions (Optional)</label>
+            <input type="text" id="orderNotes" class="form-control" placeholder="E.g. Extra spicy, less oil, packing instructions">
+          </div>
+
+          <div style="background: var(--cream); padding: 14px; border-radius: var(--radius-sm); margin-bottom: 20px; font-size: 0.88rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+              <span>Payment Mode:</span>
+              <strong>Demo Pay on Delivery / Pickup</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Total to Pay:</span>
+              <strong style="color: var(--primary);" id="modalTotalPayable">&#8377;0.00</strong>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-gold" id="placeOrderBtn" style="width: 100%;">
+            Place Demo Order Now
+          </button>
+        </form>
+
+        <div id="orderStatusBox" class="booking-status-box" style="margin-top: 16px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h2>Aadhira Spice Garden</h2>
+        <p>
+          Authentic South Indian Food with a Modern Dining Experience. Preserving genuine generational recipes with pure ghee, fresh stone-ground spices, and southern warmth.
+        </p>
+        <p style="font-size: 0.82rem; color: #7f9b88;">
+          <i class="fa-solid fa-shield-halved"></i> Demonstration portal built for restaurant operations showcase.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Our Menu</a></li>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#reviews">Testimonials</a></li>
+          <li><a href="#booking">Table Booking</a></li>
+          <li><a href="/admin.html">Admin Portal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Specialties</h4>
+        <ul class="footer-links">
+          <li><a href="#menu">Crisp Ghee Roast</a></li>
+          <li><a href="#menu">Chettinad Kozhi Varuval</a></li>
+          <li><a href="#menu">Royal Saiva Sapadu</a></li>
+          <li><a href="#menu">Dindigul Biryani</a></li>
+          <li><a href="#menu">Degree Filter Coffee</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Dining Hours</h4>
+        <div class="footer-hours-item">
+          <span>Monday – Sunday:</span>
+          <strong>7:00 AM – 10:30 PM</strong>
+        </div>
+        <div class="footer-hours-item">
+          <span>Breakfast:</span>
+          <span>7:00 AM – 11:00 AM</span>
+        </div>
+        <div class="footer-hours-item">
+          <span>Lunch:</span>
+          <span>12:00 PM – 3:30 PM</span>
+        </div>
+        <div class="footer-hours-item">
+          <span>Dinner:</span>
+          <span>6:30 PM – 10:30 PM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>
+        &copy; 2026 Aadhira Spice Garden. All rights reserved. 25 Main Road, Near Bus Stand, Dindigul, Tamil Nadu – 624001.
+      </div>
+      <div>
+        Demonstration Phone: +91 98765 43210 &bull; <a href="/admin.html">Staff Login</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main Client Script -->
+  <script src="/js/main.js"></script>
+</body>
+</html>
