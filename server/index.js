@@ -606,7 +606,13 @@ const server = http.createServer(async (req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`🍽️  Annapoorna / Aadhira Spice Garden Server running at http://localhost:${PORT}`);
-  console.log(`📁 Admin dashboard accessible at http://localhost:${PORT}/admin.html`);
-});
+if (process.env.VERCEL) {
+  module.exports = server;
+} else {
+  server.listen(PORT, () => {
+    console.log(`🍽️  Annapoorna / Aadhira Spice Garden Server running at http://localhost:${PORT}`);
+    console.log(`📁 Admin dashboard accessible at http://localhost:${PORT}/admin.html`);
+  });
+}
+
+module.exports = server;

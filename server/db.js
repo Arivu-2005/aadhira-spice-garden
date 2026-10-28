@@ -3,12 +3,31 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const fs = require('node:fs');
 
-const dataDir = path.join(__dirname, '..', 'data');
+// On Vercel / serverless environments, writable storage is in /tmp
+const isVercel = Boolean(process.env.VERCEL);
+const dataDir = isVercel ? '/tmp' : path.join(__dirname, '..', 'data');
 if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
+  try {
+    fs.mkdirSync(dataDir, { recursive: true });
+  } catch (e) {
+    console.error('Directory creation warning:', e);
+  }
 }
 
 const dbPath = path.join(dataDir, 'restaurant.db');
+
+// If running on Vercel and db file exists in repo, copy it to /tmp if not already there
+if (isVercel) {
+  const seedDbPath = path.join(__dirname, '..', 'data', 'restaurant.db');
+  if (fs.existsSync(seedDbPath) && !fs.existsSync(dbPath)) {
+    try {
+      fs.copyFileSync(seedDbPath, dbPath);
+    } catch (e) {
+      console.warn('Could not copy initial db file to /tmp:', e);
+    }
+  }
+}
+
 const db = new DatabaseSync(dbPath);
 
 // Enable foreign keys and WAL mode for reliability & performance
