@@ -1,3 +1,6 @@
+// Dynamic API base to handle both http://localhost:3000 and direct file:// views
+const API_BASE = window.location.origin.startsWith('http') ? window.location.origin : 'http://localhost:3000';
+
 // State
 let allCategories = [];
 let allMenuItems = [];
@@ -116,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Fetch Categories
 async function fetchCategories() {
   try {
-    const res = await fetch('/api/categories');
+    const res = await fetch(`${API_BASE}/api/categories`);
     const data = await res.json();
     if (data.success && Array.isArray(data.categories)) {
       allCategories = data.categories;
@@ -149,7 +152,7 @@ function renderCategoryTabs() {
 // Fetch Menu Items
 async function fetchMenu() {
   try {
-    const res = await fetch('/api/menu');
+    const res = await fetch(`${API_BASE}/api/menu`);
     const data = await res.json();
     if (data.success && Array.isArray(data.items)) {
       allMenuItems = data.items;
@@ -160,7 +163,7 @@ async function fetchMenu() {
     menuItemsGrid.innerHTML = `
       <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #b71c1c;">
         <i class="fa-solid fa-triangle-exclamation fa-2x"></i>
-        <p style="margin-top: 10px;">Failed to load menu items. Please refresh or try again.</p>
+        <p style="margin-top: 10px;">Failed to load menu items. Please open through <strong>http://localhost:3000</strong>.</p>
       </div>
     `;
   }
@@ -373,7 +376,7 @@ async function handleReservationSubmit(e) {
   submitBookingBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing Table Booking...';
 
   try {
-    const res = await fetch('/api/reservations', {
+    const res = await fetch(`${API_BASE}/api/reservations`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -434,7 +437,7 @@ async function handleOrderSubmit(e) {
   placeOrderBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Placing Order...';
 
   try {
-    const res = await fetch('/api/orders', {
+    const res = await fetch(`${API_BASE}/api/orders`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

@@ -77,6 +77,8 @@ function showDashboard() {
   loadAllDashboardData();
 }
 
+const API_BASE = window.location.origin.startsWith('http') ? window.location.origin : 'http://localhost:3000';
+
 async function handleLogin(e) {
   e.preventDefault();
   loginErrorMsg.style.display = 'none';
@@ -84,7 +86,7 @@ async function handleLogin(e) {
   const password = document.getElementById('adminPassword').value;
 
   try {
-    const res = await fetch('/api/admin/login', {
+    const res = await fetch(`${API_BASE}/api/admin/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password })
@@ -102,7 +104,11 @@ async function handleLogin(e) {
       loginErrorMsg.style.display = 'block';
     }
   } catch (err) {
-    loginErrorMsg.textContent = 'Server connection error. Please make sure the server is running.';
+    if (window.location.protocol === 'file:') {
+      loginErrorMsg.innerHTML = 'You opened the file directly (file://). Please open it via <a href="http://localhost:3000/admin.html" style="color:#b91c1c; font-weight:bold; text-decoration:underline;">http://localhost:3000/admin.html</a> in your browser!';
+    } else {
+      loginErrorMsg.textContent = 'Server connection error: ' + err.message + '. Make sure start-server.bat is running.';
+    }
     loginErrorMsg.style.display = 'block';
   }
 }
@@ -146,7 +152,7 @@ async function loadAllDashboardData() {
 // Fetch Stats
 async function fetchStats() {
   try {
-    const res = await fetch('/api/admin/stats', {
+    const res = await fetch(`${API_BASE}/api/admin/stats`, {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     if (res.status === 401) return handleLogout();
@@ -165,7 +171,7 @@ async function fetchStats() {
 // Fetch Categories
 async function fetchCategories() {
   try {
-    const res = await fetch('/api/categories');
+    const res = await fetch(`${API_BASE}/api/categories`);
     const data = await res.json();
     if (data.success) {
       categoriesCache = data.categories;
@@ -187,7 +193,7 @@ function populateCategoryDropdown() {
 // Fetch Menu Items
 async function fetchMenu() {
   try {
-    const res = await fetch('/api/menu');
+    const res = await fetch(`${API_BASE}/api/menu`);
     const data = await res.json();
     if (data.success) {
       menuCache = data.items;
@@ -244,7 +250,7 @@ function renderMenuTable() {
 // Fetch Reservations
 async function fetchReservations() {
   try {
-    const res = await fetch('/api/reservations', {
+    const res = await fetch(`${API_BASE}/api/reservations`, {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     if (res.status === 401) return handleLogout();
@@ -318,7 +324,7 @@ function renderOverviewRecentReservations() {
 
 async function updateReservationStatus(id, newStatus) {
   try {
-    const res = await fetch(`/api/reservations/${id}/status`, {
+    const res = await fetch(`${API_BASE}/api/reservations/${id}/status`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -339,7 +345,7 @@ async function updateReservationStatus(id, newStatus) {
 // Fetch Orders
 async function fetchOrders() {
   try {
-    const res = await fetch('/api/orders', {
+    const res = await fetch(`${API_BASE}/api/orders`, {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     if (res.status === 401) return handleLogout();
@@ -418,7 +424,7 @@ function renderOverviewRecentOrders() {
 
 async function updateOrderStatus(id, newStatus) {
   try {
-    const res = await fetch(`/api/orders/${id}/status`, {
+    const res = await fetch(`${API_BASE}/api/orders/${id}/status`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -484,7 +490,7 @@ async function handleSaveMenuItem(e) {
   };
 
   const isEdit = Boolean(id);
-  const endpoint = isEdit ? `/api/menu/${id}` : '/api/menu';
+  const endpoint = isEdit ? `${API_BASE}/api/menu/${id}` : `${API_BASE}/api/menu`;
   const method = isEdit ? 'PUT' : 'POST';
 
   try {
@@ -514,7 +520,7 @@ async function deleteMenuItem(id) {
   if (!confirm('Are you sure you want to permanently delete this menu dish?')) return;
 
   try {
-    const res = await fetch(`/api/menu/${id}`, {
+    const res = await fetch(`${API_BASE}/api/menu/${id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${token}`
